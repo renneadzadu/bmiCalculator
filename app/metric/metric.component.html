@@ -1,0 +1,62 @@
+<div style="text-align:center">
+  <h1>
+    {{title | uppercase}}
+  </h1>
+<br>
+
+<h4 ng-model>Weight: </h4>
+<input class="dropdown" type="number" min="0" [(ngModel)]='weight'>
+<br/>
+<br/>
+<h4>Height</h4>
+ <p>Centimeters: </p>
+<input class="dropdown" type="number" min="0" max="8" [(ngModel)]="height_centimeters">
+<br/>
+<br/>
+<br/>
+<br/>
+<button (click)="calculateMetricBmi()" >Calculate</button>
+<p class="text-input">Your BMI result is: {{bmi}} </p>
+
+<br>
+
+
+<ul   name="category" >
+<h4 *ngIf="bmi > 10.0 && bmi <=18.5">Your result indicates that you are Underweight</h4>
+<p *ngIf="bmi > 18.5 && bmi< 24.99">Your result indicates that you are Healthy</p>
+<p *ngIf="bmi > 25 && bmi < 29.99">Your result indicates that you are Overweight</p>
+<p *ngIf="bmi > 30 && bmi <43"> Your result indicates that you are Obese</p>
+<p *ngIf="bmi > 44"> Are you sure the information you have entered is correct? Please check again.</p>
+
+</ul>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">BMI Infomation</th>
+      <th scope="col">Weight</th>
+      
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">Below 18.5</th>
+      <td>Underweight</td>
+    </tr>
+    <tr>
+      <th scope="row">18.5—24.9</th>
+      <td>Healthy</td>
+      </tr>
+    <tr>
+      <th scope="row">25.0—29.9</th>
+      <td>Overweight</td>
+    </tr>
+    <tr>
+      <th scope="row">30.0 and Above	</th>
+      <td>Obese</td>
+    </tr>
+  </tbody>
+</table>
+</div> 
+
